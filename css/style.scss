@@ -1,0 +1,31 @@
+$color_1: var(--secondary-color);
+$color_2: var(--third-color);
+$font-family_1: "Sixtyfour", sans-serif;
+$background-color_1: var(--body-background-color);
+
+* {
+	box-sizing: border-box;
+}
+&:root {
+	--primary-color: rgb(0, 0, 0);
+	--secondary-color: #2719a0;
+	--a-visited: #1967ce;
+	--body-background-color: rgb(199, 197, 197);
+	--third-color: #c20f3c;
+	--button-background-color: #4c17ad;
+	--grid-item-color: lightgray;
+}
+body {
+	background-color: $background-color_1;
+	font-family: $font-family_1;
+	font-weight: 450;
+	font-size: 16px;
+	line-height: 1.5;
+	padding: 20px;
+}
+.pokemonName {
+	color: $color_1;
+}
+.pokemonHeight {
+	color: $color_2;
+}

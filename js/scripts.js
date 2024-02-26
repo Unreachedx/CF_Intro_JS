@@ -13,6 +13,18 @@ let pokemonList = [
     name: 'Arcanine',
     height: 1.9,
     type: ['Fire'] 
+  },
+  {
+    name: 'Squirtle',
+    height: 1,
+    type: ['Water']
   }
 ];
-console.log(pokemonList)
+
+for (let i = 0; i < pokemonList.length; i++) {
+  document.write('<p class="pokemonName">' + pokemonList[i].name + " " +'</p>');
+}
+
+for (let i = 0; i <pokemonList.length; i++) {
+  document.write('<p class="pokemonHeight">' + pokemonList[i].height + " " + '</p>');
+}
