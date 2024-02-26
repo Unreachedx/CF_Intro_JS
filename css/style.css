@@ -23,6 +23,7 @@ body {
 
 .pokemonName {
   color: var(--secondary-color);
+  display: flex;
 }
 
 .pokemonHeight {
