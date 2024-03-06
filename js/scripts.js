@@ -21,6 +21,7 @@ let pokemonList = [
   }
 ];
 
+
 for (let i = 0; i < pokemonList.length; i++) {
   let output = '<div class="pokemonName">' + pokemonList[i].name + "  " + pokemonList[i].height + "  " + pokemonList[i].type;
 
@@ -31,3 +32,7 @@ for (let i = 0; i < pokemonList.length; i++) {
   output += '</div>';
   document.write(output);
 }
+
+pokemonList.forEach(function(pokemon) {
+  console.log(pokemon.name + ' is ' + pokemon.height + ' This Height' +  'and its type is '  + pokemon.type);
+});
