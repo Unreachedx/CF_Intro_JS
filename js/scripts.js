@@ -1,5 +1,6 @@
-let pokemonList = [
-  {
+let pokemonRepository = (function () {
+
+  let pokemonList = [   {
     name: 'Charizard',
     height: 1.7,
     type: ['Fire', 'Flying']
@@ -18,21 +19,39 @@ let pokemonList = [
     name: 'Squirtle',
     height: 1,
     type: ['Water']
+  }]
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  };
+  function getAll() {
+    return pokemonList;
   }
-];
 
+  return {
+    add: add,
+    getAll: getAll
+  }
 
-for (let i = 0; i < pokemonList.length; i++) {
-  let output = '<div class="pokemonName">' + pokemonList[i].name + "  " + pokemonList[i].height + "  " + pokemonList[i].type;
+})()
 
-  if (pokemonList[i].height > 1.5) {
+let newPokemon = {
+  name: 'Pikachu',
+  height: 0.4,
+  type: ['Electric']
+};
+
+pokemonRepository.add(newPokemon);
+
+pokemonRepository.getAll().forEach((pokemon) => {
+  let output = '<div class="pokemonName">' + pokemon.name + "  " + pokemon.height + "  " + pokemon.type;
+
+  if (pokemon.height > 1.5) {
     output += ' - This is really a big Pokemon';
   }
 
   output += '</div>';
   document.write(output);
-}
-
-pokemonList.forEach(function(pokemon) {
-  console.log(pokemon.name + ' is ' + pokemon.height + ' This Height' +  'and its type is '  + pokemon.type);
 });
+
+
