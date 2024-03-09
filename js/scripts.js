@@ -44,11 +44,11 @@ let pokemonRepository = (function () {
     let pokemon_list = document.querySelector('.pokemon-container')
 
   pokemonRepository.getAll().forEach((pokemon) => {
-  let listItem = document.createElement('li')
-  let button = document.createElement('button')
-  button.innerText = pokemon.name;
-  button.classList.add('pokemon-button')
-  listItem.appendChild(button);
+  let listItem = document.createElement('li') 
+  let button = document.createElement('button') // creates buttons to click on for each Pokemon in the array
+  button.innerText = pokemon.name; // changes the name from the Button to the Pokemon
+  button.classList.add('pokemon-button') // adds the class to every Button
+  listItem.appendChild(button); 
   pokemon_list.appendChild(listItem);
   button.addEventListener('click', function () {
    showDetails(pokemon);
