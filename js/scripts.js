@@ -36,10 +36,25 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  function addListItem(pokemon) {
+    let pokemon_list = document.querySelector('.pokemon-container')
+
+  pokemonRepository.getAll().forEach((pokemon) => {
+  let listItem = document.createElement('li')
+  let button = document.createElement('button')
+  button.innerText = pokemon.name;
+  button.classList.add('pokemon-button')
+  listItem.appendChild(button);
+  pokemon_list.appendChild(listItem);
+})}
+
+
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   }
+
 
 })()
 
@@ -50,17 +65,4 @@ let newPokemon = {
 };
 
 pokemonRepository.add(newPokemon);
-
-pokemonRepository.getAll().forEach((pokemon) => {
-  let output = '<div class="pokemonName">' + pokemon.name + "  " + pokemon.height + "  " + pokemon.type;
-
-  // if pokemon.height is bigger then 1.5 they get a extra text to their Name
-  if (pokemon.height > 1.5) {
-    output += ' - This is really a big Pokemon';
-  }
-
-  output += '</div>';
-  document.write(output);
-});
-
-
+pokemonRepository.addListItem();

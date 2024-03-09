@@ -30,4 +30,28 @@ body {
   color: var(--secondary-color);
   display: -webkit-box;
   display: -ms-flexbox;
+
+}
+
+ul{
+  list-style-type: none;
+}
+
+.pokemon-button {
+  display: block;
+  width: 150px;
+  height: 150px; 
+  margin: 10px; 
+  background-color: #2421e0;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Hover effect for the button */
+.pokemon-button:hover {
+  background-color: #45a049;
 }
