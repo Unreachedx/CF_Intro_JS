@@ -40,7 +40,7 @@ let pokemonRepository = (function () {
     console.log(pokemon);
   };
 
-  function addListItem(pokemon) {
+  function addListItem() {
     let pokemon_list = document.querySelector('.pokemon-container')
 
   pokemonRepository.getAll().forEach((pokemon) => {
