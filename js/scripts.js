@@ -1,31 +1,11 @@
 let pokemonRepository = (function () {
-
-  let pokemonList = [
-    // Array of pokemon for the Page
-    {
-    name: 'Charizard',
-    height: 1.7,
-    type: ['Fire', 'Flying']
-  },
-  {  
-  name: 'Blastoise',
-  height: 1.6,
-  type: ['Water']
-  },
-  {
-    name: 'Arcanine',
-    height: 1.9,
-    type: ['Fire'] 
-  },
-  {
-    name: 'Squirtle',
-    height: 1,
-    type: ['Water']
-  }]
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(pokemon) {
     // Check if the parameter is an object before adding it to the list
-    if (typeof pokemon === 'object' && pokemon !== null) {
+    if (typeof pokemon === 'object' && "name" in pokemon
+    /*  && "detailsUrl" in pokemon */) {
       pokemonList.push(pokemon);
     } else {
       console.error('Invalid input. Only objects can be added to the pokemonList.');
@@ -35,10 +15,6 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
-
-  function showDetails(pokemon) {
-    console.log(pokemon);
-  };
 
   function addListItem() {
     let pokemon_list = document.querySelector('.pokemon-container')
@@ -55,21 +31,54 @@ let pokemonRepository = (function () {
   });
 })}
 
+function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
+
+function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (details) {
+    // Now we add the details to the item
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
+
+function showDetails(item) {
+  loadDetails(item).then(function () {
+    console.log(item);
+  });
+}
 
   return {
     add: add,
+    loadList: loadList,
     getAll: getAll,
     addListItem: addListItem
   }
 
-
 })()
 
-let newPokemon = {
-  name: 'Pikachu',
-  height: 0.4,
-  type: ['Electric']
-};
-
-pokemonRepository.add(newPokemon);
-pokemonRepository.addListItem();
+pokemonRepository.loadList().then(function() {
+  // Now the data is loaded!
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
+});
