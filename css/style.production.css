@@ -19,102 +19,11 @@ body {
   padding: 20px;
 }
 
-.pokedex-div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-
-}
-
-
-.pokemonName {
-  color: var(--secondary-color);
-  display: -webkit-box;
-  display: -ms-flexbox;
-
-}
-
 ul{
   list-style-type: none;
   padding: 0;
 }
 
-.pokemon-button {
-    display: block;
-    width: 500px;
-    height: 100px;
-    margin: 20px;
-    background-color: #2421e0;
-    color: white;
-    /* border: none; */
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.pokedex-heading {
-  margin: 20px;
-}
-
-/* Hover effect for the button */
-.pokemon-button:hover {
-  background-color: #45a049;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #fff;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
-  text-align: left;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
-}
-
-.modal h1 {
-  margin-top: 0;
-}
-
-.modal p {
-  margin-bottom: 0;
-}
-
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  
-  /* to show it above other content */
-  z-index: 999; 
-  
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
-  
-  /* this is used to center the modal */
-  text-align: center;
-  display: block;
+li{
+  margin-top: 10px;
 }
