@@ -1,9 +1,5 @@
-$color_1: var(--secondary-color);
-$color_2: white;
 $font-family_1: "Sixtyfour", sans-serif;
 $background-color_1: var(--body-background-color);
-$background-color_2: #2421e0;
-$background-color_3: #45a049;
 
 * {
 	-webkit-box-sizing: border-box;
@@ -23,40 +19,10 @@ body {
 	line-height: 1.5;
 	padding: 20px;
 }
-.pokedex-div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-}
-
-.pokemonName {
-	color: $color_1;
-	display: -webkit-box;
-	display: -ms-flexbox;
-}
 ul {
 	list-style-type: none;
 	padding: 0;
 }
-.pokemon-button {
-	display: block;
-	width: 500px;
-	height: 100px;
-	margin: 20px;
-	background-color: $background-color_2;
-	color: $color_2;
-	text-align: center;
-	text-decoration: none;
-	font-size: 16px;
-	cursor: pointer;
-	&:hover {
-		background-color: $background-color_3;
-	}
-}
-.pokedex-heading {
-	margin: 20px;
+li {
+	margin-top: 10px;
 }
