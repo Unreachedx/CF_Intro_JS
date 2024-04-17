@@ -7,9 +7,6 @@ let pokemonRepository = (function () {
     $('#modal-text').text(text);
     $('#modal-image').attr('src', imageUrl);
     $('#exampleModal').modal('show');
-
-    modalTitle.empty();
-    modalBody.empty();
   }
 
   function add(pokemon) {
@@ -31,19 +28,16 @@ let pokemonRepository = (function () {
     
     button.classList.add('list-group-item');
     button.innerText = pokemon.name;
-
-    // Set data-target and data-toggle attributes for Bootstrap modal
     button.setAttribute('data-target', '#exampleModal');
     button.setAttribute('data-toggle', 'modal');
 
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
 
-    // Add click event listener to show details
     button.addEventListener('click', function () {
         showDetails(pokemon);
     });
-}
+  }
   
   function loadList() {
     return fetch(apiUrl)
@@ -74,7 +68,7 @@ let pokemonRepository = (function () {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
-        return item; // Return the item with details
+        return item;
       })
       .catch(function (e) {
         console.error('Error loading Pokemon details:', e);
@@ -103,7 +97,6 @@ let pokemonRepository = (function () {
   };
 })();
 
-// Call loadList and addListItem
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);

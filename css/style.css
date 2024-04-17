@@ -5,9 +5,14 @@
 
 :root {
   --primary-color: rgb(0, 0, 0);
-  --secondary-color: #2719a0;
+  --secondary-color: #7a7a7a;
   --body-background-color: rgb(199, 197, 197);
-  --third-color: #c20f3c;
+  --third-color: #aa0303;
+  --fourth-color: darkgray;
+  --white-color: #fff;
+  --yellow-color: #f7f700;
+  --dark-blue-color: #02024e;
+
 }
 
 body {
@@ -26,4 +31,60 @@ ul{
 
 li{
   margin-top: 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: var(--fourth-color); /* Red */
+}
+
+.pokedex-heading {
+  color: var(--white-color); /* White */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Pokemon Container Styles */
+
+.list-group-item {
+  border: 1px solid #ccc; /* Thin border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px; /* Add padding */
+  margin: 20px 10px; /* Add more margin between each item */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+.list-group-item:not(:last-child) {
+  border-bottom: 1px solid #ccc; /* Thin line between items */
+}
+
+.list-group-item:hover {
+  background-color: #f5f5f5; /* Light Gray */
+  cursor: pointer;
+}
+
+
+/* Modal Styles */
+.modal-content {
+  background-color: var(--fourth-color); /* Red */
+  border-radius: 20px;
+}
+
+.modal-title {
+  color: var(--white-color);; /* White */
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+.modal-text {
+  color: var(--white-color);; /* White */
 }
